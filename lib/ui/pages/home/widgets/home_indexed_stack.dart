@@ -17,8 +17,8 @@ class HomeIndexedStack extends StatelessWidget {
           index: currentIndex,
           children: [
             HomeTab(),
-            CalendarTab(),
             ChatListPage(), //chatTap 페이지 삭제하고 여기서 바로 chatListPage로 연결되도록 수정함
+            CalendarTab(),
             LogBookTab(),
             ProfileTab(),
           ],

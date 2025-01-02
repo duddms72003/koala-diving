@@ -32,16 +32,16 @@ class HomeBottomNavigationBar extends StatelessWidget {
           tooltip: "홈",
         ),
         BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.calendar),
-          activeIcon: Icon(CupertinoIcons.calendar),
-          label: "캘린더",
-          tooltip: "캘린더",
-        ),
-        BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.chat_bubble_2),
           activeIcon: Icon(CupertinoIcons.chat_bubble_2_fill),
           label: "채팅",
           tooltip: "채팅",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(CupertinoIcons.calendar),
+          activeIcon: Icon(CupertinoIcons.calendar),
+          label: "캘린더",
+          tooltip: "캘린더",
         ),
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.book),

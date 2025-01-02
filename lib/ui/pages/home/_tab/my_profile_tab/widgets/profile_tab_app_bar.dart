@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:koala_diving/ui/pages/settings/setting_page.dart';
 
 class ProfileTabAppBar extends StatelessWidget implements PreferredSizeWidget {
   const ProfileTabAppBar({Key? key}) : super(key: key);
@@ -21,6 +22,23 @@ class ProfileTabAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       centerTitle: true,
+      actions: [
+        Container(
+          child: IconButton(
+            icon: Icon(
+              Icons.settings,
+              size: 24,
+            ),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => SettingsPage(),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 

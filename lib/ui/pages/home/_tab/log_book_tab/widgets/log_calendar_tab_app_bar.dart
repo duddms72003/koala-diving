@@ -36,9 +36,7 @@ class LogCalendarTabAppBar extends StatelessWidget {
               Icons.add,
               size: 24,
             ),
-            onPressed: () {
-              //
-            },
+            onPressed: () {},
           ),
         ),
       ],
