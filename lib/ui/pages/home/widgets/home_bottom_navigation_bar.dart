@@ -44,8 +44,8 @@ class HomeBottomNavigationBar extends StatelessWidget {
           tooltip: "채팅",
         ),
         BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.person),
-          activeIcon: Icon(CupertinoIcons.person_fill),
+          icon: Icon(CupertinoIcons.book),
+          activeIcon: Icon(CupertinoIcons.book_fill),
           label: "성장일기",
           tooltip: "성장일기",
         ),
