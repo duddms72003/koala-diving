@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "297831414737",
+    "project_id": "koala-diving-2fd95",
+    "storage_bucket": "koala-diving-2fd95.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297831414737:android:bc1bdc0f271e738fee7ef0",
+        "android_client_info": {
+          "package_name": "com.example.koala_div"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeVzvG4ScLOU9GgnyFyjn6wLLKHJ6pE1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
