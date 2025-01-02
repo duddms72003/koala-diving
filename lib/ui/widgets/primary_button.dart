@@ -11,7 +11,7 @@ class PrimaryButton extends StatelessWidget {
     super.key,
     required this.text,
     this.textStyle = const TextStyle(
-      fontSize: 18,
+      fontSize: 16,
       fontWeight: FontWeight.bold,
       color: Colors.white,
     ), // nullable, 텍스트스타일을 전달받지 않았을 때 정해진 스타일 사용(기본값)
@@ -28,7 +28,7 @@ class PrimaryButton extends StatelessWidget {
         backgroundColor: backgroundColor,
         minimumSize: const Size(double.infinity, 50),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
+          borderRadius: BorderRadius.circular(8),
           side:
               BorderSide(color: borderColor ?? Colors.transparent, width: 0.5),
         ),

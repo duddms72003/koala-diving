@@ -69,8 +69,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/welcome_bg.png
-    - assets/images/logo_deepdive.png
+    # - assets/images/welcome_bg2.png
+    - assets/images/logo-black.png
     - assets/images/default_profile_image.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
