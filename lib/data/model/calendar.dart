@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CalendarEvent {
   final String id;
+  final String userId; // 추가:
   final String title;
   final DateTime date;
   final String time;
@@ -9,6 +10,7 @@ class CalendarEvent {
 
   CalendarEvent({
     required this.id,
+    required this.userId,
     required this.title,
     required this.date,
     required this.time,
@@ -20,6 +22,7 @@ class CalendarEvent {
     Map data = doc.data() as Map<String, dynamic>;
     return CalendarEvent(
       id: doc.id,
+      userId: data['userId'] ?? '', // 추가
       title: data['title'] ?? '',
       date: (data['date'] as Timestamp).toDate(),
       time: data['time'] ?? '',
@@ -30,6 +33,7 @@ class CalendarEvent {
   // Firestore에 데이터를 저장할 때 사용
   Map<String, dynamic> toFirestore() {
     return {
+      'userId': userId, // 추가
       'title': title,
       'date': Timestamp.fromDate(date),
       'time': time,
@@ -41,6 +45,7 @@ class CalendarEvent {
   Map<String, String> toMap() {
     return {
       'id': id,
+      'userId': userId, // 추가
       'name': title,
       'date': '${date.year}년 ${date.month}월 ${date.day}일',
       'time': time,

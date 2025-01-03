@@ -1,21 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:koala_diving/data/model/calendar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CalendarRepository {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final String _collection = 'calendar_events';
 
   // 이벤트 저장
-  Future<void> saveEvent(CalendarEvent event) {
-    return _firestore.collection(_collection).add(event.toFirestore());
-  }
-
-  // 모든 이벤트 가져오기
   Stream<List<CalendarEvent>> getAllEvents() {
+    final userId = _auth.currentUser?.uid;
+    if (userId == null) return Stream.value([]); // 로그인하지 않은 경우 빈 리스트 반환
+
     return _firestore
         .collection(_collection)
-        .orderBy('date', descending: false)
+        .where('userId', isEqualTo: userId)
+        // .orderBy('date', descending: false)
         .snapshots()
         .map((snapshot) => snapshot.docs
             .map((doc) => CalendarEvent.fromFirestore(doc))
@@ -45,7 +46,12 @@ class CalendarRepository {
 final calendarRepositoryProvider = Provider((ref) => CalendarRepository());
 
 // 캘린더 이벤트 리스트를 스트림으로 제공하는 Provider
-final calendarEventsProvider = StreamProvider((ref) {
+// final calendarEventsProvider = StreamProvider((ref) {
+//   final repository = ref.watch(calendarRepositoryProvider);
+//   return repository.getAllEvents(); // getEvents()를 getAllEvents()로 변경
+// });
+
+final calendarEventsProvider = StreamProvider.autoDispose((ref) {
   final repository = ref.watch(calendarRepositoryProvider);
-  return repository.getAllEvents(); // getEvents()를 getAllEvents()로 변경
+  return repository.getAllEvents();
 });

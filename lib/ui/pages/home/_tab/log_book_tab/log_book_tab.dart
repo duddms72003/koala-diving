@@ -20,7 +20,7 @@ class _LogBookTabState extends State<LogBookTab> {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        final eventsAsyncValue = ref.watch(calendarEventsProvider);
+        // final eventsAsyncValue = ref.watch(calendarEventsProvider);
 
         return Container(
           color: Colors.white,
@@ -30,33 +30,33 @@ class _LogBookTabState extends State<LogBookTab> {
                 LogCalendarTabAppBar(
                   selectedDate: selectedDate,
                   onAddItem: (Map<String, String> newItem) {
-                    final event = CalendarEvent(
-                      id: '',
-                      title: newItem['name'] ?? '',
-                      date: _parseDateString(newItem['date'] ?? ''),
-                      time: newItem['time'] ?? '',
-                      location: newItem['location'] ?? '',
-                    );
-                    ref.read(calendarRepositoryProvider).addEvent(event);
+                    // final event = CalendarEvent(
+                    //   id: '',
+                    //   title: newItem['name'] ?? '',
+                    //   date: _parseDateString(newItem['date'] ?? ''),
+                    //   time: newItem['time'] ?? '',
+                    //   location: newItem['location'] ?? '',
+                    // );
+                    // ref.read(calendarRepositoryProvider).addEvent(event);
                   },
                 ),
                 Expanded(
                   child: Column(
                     children: [
-                      LogCalendarView(
-                        key: ValueKey(eventsAsyncValue.hashCode),
-                        onDateSelected: (date) {
-                          setState(() {
-                            selectedDate = date;
-                          });
-                        },
-                        savedItems: eventsAsyncValue.when(
-                          data: (events) =>
-                              events.map((e) => e.toMap()).toList(),
-                          loading: () => [],
-                          error: (_, __) => [],
-                        ),
-                      ),
+                      // LogCalendarView(
+                      //   key: ValueKey(eventsAsyncValue.hashCode),
+                      //   onDateSelected: (date) {
+                      //     setState(() {
+                      //       selectedDate = date;
+                      //     });
+                      //   },
+                      //   savedItems: eventsAsyncValue.when(
+                      //     data: (events) =>
+                      //         events.map((e) => e.toMap()).toList(),
+                      //     loading: () => [],
+                      //     error: (_, __) => [],
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
